@@ -1,0 +1,32 @@
+# Sveltia CMS config for the jellytoast blog editor (served at /jellytoast/admin/).
+# The jellytoast site lives in the umbrella repo (wolfgangwarehaus.github.io) under
+# /jellytoast/. One-time auth setup: see the private ops repo.
+
+backend:
+  name: github
+  repo: wolfgangwarehaus/wolfgangwarehaus.github.io
+  branch: main
+  base_url: https://sveltia-cms-auth.augustvontrips.workers.dev
+
+media_folder: jellytoast/blog/media
+public_folder: media
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: Blog posts
+    label_singular: Post
+    description: Little updates for the jellytoast blog.
+    folder: jellytoast/blog/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: summary, label: "Summary (one line shown on the blog index)", widget: string, required: false }
+      - { name: body, label: Post, widget: markdown }
