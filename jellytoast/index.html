@@ -182,7 +182,8 @@
 
     <h3>macOS</h3>
     <ul>
-      <li><b>Apple Silicon</b> — download the <a id="dl-dmg" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.dmg</a> (signed &amp; notarized), then drag jellytoast to Applications.</li>
+      <li><b>Apple Silicon</b> — download the <a id="dl-dmg-arm64" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.dmg</a> (signed &amp; notarized), then drag jellytoast to Applications.</li>
+      <li><b>Intel</b> — download the <a id="dl-dmg-intel" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.dmg</a> (signed &amp; notarized), then drag jellytoast to Applications.</li>
       <li><b>Mac App Store</b> — coming soon.</li>
     </ul>
 
@@ -270,7 +271,8 @@
       wire(["dl-win2"], /windows-x64-setup\.exe$/);
       wire(["dl-deb2"], /_amd64\.deb$/);
       wire(["dl-appimage"], /\.AppImage$/);
-      wire(["dl-dmg"], /-macos\.dmg$/);
+      wire(["dl-dmg-arm64"], /-macos-arm64\.dmg$/);
+      wire(["dl-dmg-intel"], /-macos-x86_64\.dmg$/);
     })
     .catch(() => {});
 </script>
