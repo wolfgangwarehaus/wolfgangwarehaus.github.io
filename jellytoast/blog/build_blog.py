@@ -129,21 +129,25 @@ def build() -> int:
             ),
             encoding="utf-8",
         )
-        posts.append({"title": title, "date": date, "summary": summary, "slug": slug})
+        posts.append(
+            {"title": title, "date": date, "summary": summary, "slug": slug, "rendered": rendered}
+        )
 
     # Newest first — ISO YYYY-MM-DD dates sort correctly as plain strings.
     posts.sort(key=lambda p: p["date"], reverse=True)
 
     if posts:
-        items = "\n".join(
-            "    <li>\n"
-            f'      <a class="title" href="{p["slug"]}.html">{html.escape(p["title"])}</a>\n'
-            + (f'      <div class="date">{html.escape(p["date"])}</div>\n' if p["date"] else "")
-            + (f'      <div class="summary">{html.escape(p["summary"])}</div>\n' if p["summary"] else "")
-            + "    </li>"
+        # Show each post in FULL on the index (newest first), no click-through.
+        # The title still links to the post's own page for sharing/permalinks.
+        blocks = [
+            '  <article class="post">\n'
+            + (f'    <p class="date">{html.escape(p["date"])}</p>\n' if p["date"] else "")
+            + f'    <h2 class="post-title"><a href="{p["slug"]}.html">{html.escape(p["title"])}</a></h2>\n'
+            + p["rendered"]
+            + "\n  </article>"
             for p in posts
-        )
-        listing = f'  <ul class="posts">\n{items}\n  </ul>'
+        ]
+        listing = '\n  <hr class="feed-sep">\n'.join(blocks)
     else:
         listing = '  <p class="empty">No posts yet — check back soon.</p>'
 

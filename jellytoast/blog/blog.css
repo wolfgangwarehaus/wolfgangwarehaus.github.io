@@ -30,18 +30,12 @@ header .sub { color: var(--dim); font-size: 0.98rem; }
 a { color: var(--jelly-bright); }
 a:hover { color: var(--text); }
 
-/* Index — the list of posts */
-.posts { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.posts li {
-  background: var(--panel); border: 1px solid var(--panel-border);
-  border-radius: 14px; padding: 20px 22px;
-  transition: border-color .15s, transform .15s;
-}
-.posts li:hover { border-color: var(--jelly-bright); transform: translateY(-1px); }
-.posts a.title { font-size: 1.18rem; font-weight: 600; text-decoration: none; color: var(--text); }
-.posts a.title:hover { color: var(--jelly-bright); }
-.posts .date { color: var(--dim); font-size: 0.85rem; margin-top: 4px; }
-.posts .summary { color: var(--dim); font-size: 0.95rem; margin-top: 8px; }
+/* Index — full posts in a feed, newest first (no click-through) */
+.post { margin-bottom: 8px; }
+.post-title { font-size: 1.7rem; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 16px; }
+.post-title a { color: var(--text); text-decoration: none; border: 0; }
+.post-title a:hover { color: var(--jelly-bright); }
+.feed-sep { border: 0; border-top: 1px solid var(--panel-border); margin: 44px 0; }
 .empty { color: var(--dim); text-align: center; }
 
 /* A single post */
