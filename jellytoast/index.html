@@ -107,6 +107,22 @@
   .install a { color: var(--jelly-bright); text-decoration: none;
     border-bottom: 1px solid rgba(157,138,232,0.4); }
   .install a:hover { border-bottom-color: var(--jelly-bright); }
+  /* Install — platform matrix (Platform / Recommended / Also available) */
+  .install .lead { color: var(--dim); font-size: 0.95rem; margin: 0 0 14px; }
+  .install .table-wrap { overflow-x: auto; }
+  .install table { width: 100%; border-collapse: collapse; }
+  .install th, .install td { text-align: left; vertical-align: top;
+    padding: 12px 16px 12px 0; border-bottom: 1px solid var(--panel-border); }
+  .install thead th { color: var(--dim); font-weight: 600; font-size: 0.76rem;
+    text-transform: uppercase; letter-spacing: 0.05em; }
+  .install tbody td { color: var(--dim); font-size: 0.92rem; line-height: 1.55; }
+  .install tbody td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+  .install .muted { opacity: 0.55; }
+  .install .src { color: var(--dim); font-size: 0.93rem; margin: 24px 0 8px; }
+  .install pre { background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
+    border-radius: 10px; padding: 14px 16px; overflow-x: auto; }
+  .install pre code { background: none; padding: 0; color: var(--text);
+    font-size: 0.85rem; line-height: 1.6; }
   code {
     background: rgba(255,255,255,0.07); border-radius: 6px; padding: 2px 7px;
     font: 0.88em ui-monospace, "Cascadia Code", monospace; color: var(--jelly-bright);
@@ -172,32 +188,40 @@
 
   <h2>Install</h2>
   <div class="install">
-
-    <h3>Linux</h3>
-    <ul>
-      <li><b>Ubuntu / Debian / Mint</b> — download the <a id="dl-deb2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.deb</a> and install it with <code>sudo apt install ./jellytoast_*_amd64.deb</code>.</li>
-      <li><b>AppImage</b> (any distro, nothing to install) — download the <a id="dl-appimage" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">AppImage</a>, make it executable with <code>chmod +x</code>, and run it.</li>
-      <li><b>AUR</b> (Arch Linux) — coming soon.</li>
-    </ul>
-
-    <h3>macOS</h3>
-    <ul>
-      <li><b>Apple Silicon</b> — download the <a id="dl-dmg" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.dmg</a> (signed &amp; notarized), then drag jellytoast to Applications.</li>
-      <li><b>Mac App Store</b> — coming soon.</li>
-    </ul>
-
-    <h3>Windows 10/11</h3>
-    <ul>
-      <li><b><a href="https://apps.microsoft.com/detail/9PNLTPXGHN79">Microsoft Store</a></b> — one click, auto-updating, no SmartScreen warning.</li>
-      <li><b>winget</b> — <code>winget install wolfgangwarehaus.jellytoast</code></li>
-      <li><b>Installer or portable zip</b> — download the <a id="dl-win2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">installer</a> or zip (unsigned, so Windows SmartScreen warns on first launch — just click <b>More info → Run anyway</b>).</li>
-    </ul>
-
-    <h3>Any OS</h3>
-    <ul>
-      <li><b>PyPI</b> — <code>pipx install jellytoast</code></li>
-    </ul>
-
+    <p class="lead">Latest builds are on <a href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest"><b>Releases</b></a>. Pick your platform:</p>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>Recommended</th><th>Also available</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Linux</td>
+          <td><a id="dl-deb2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.deb</a> — Ubuntu / Debian / Mint (22.04+ / 12+)<br><code>sudo apt install ./jellytoast_*_amd64.deb</code></td>
+          <td><a id="dl-appimage" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">AppImage</a> (any distro, no install) · AUR <span class="muted">(soon)</span></td>
+        </tr>
+        <tr>
+          <td>macOS</td>
+          <td><a id="dl-dmg" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.dmg</a>, signed &amp; notarized — drag to Applications<br>Apple Silicon (Sonoma 14+) · Intel (Sequoia 15+)</td>
+          <td>Mac App Store <span class="muted">(soon)</span></td>
+        </tr>
+        <tr>
+          <td>Windows 10 / 11</td>
+          <td><a href="https://apps.microsoft.com/detail/9PNLTPXGHN79"><b>Microsoft Store</b></a> — one click, auto-updating, no warnings</td>
+          <td><code>winget install wolfgangwarehaus.jellytoast</code> · <a id="dl-win2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">installer / portable zip</a> <span class="muted">(unsigned — SmartScreen warns)</span></td>
+        </tr>
+        <tr>
+          <td>Any OS</td>
+          <td><code>pipx install jellytoast</code> (PyPI)</td>
+          <td>Build from source — see below</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="src"><b>From source</b> (Python 3.11+, Qt 6, libmpv):</p>
+    <pre><code>git clone https://github.com/wolfgangwarehaus/jellytoast.git
+cd jellytoast &amp;&amp; pip install -e .
+jellytoast</code></pre>
   </div>
 
   <div class="kofi">
