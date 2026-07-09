@@ -163,11 +163,12 @@
 
   <div class="carousel" id="shots" aria-roledescription="carousel" aria-label="jellytoast screenshots">
     <div class="frame">
-      <img class="slide active" src="library.webp"       width="1600" height="900" alt="Music library — album grid with an A–Z jump rail">
-      <img class="slide"         src="now-playing.webp"   width="1600" height="900" alt="Now Playing view — album art, live queue and visualizer">
-      <img class="slide"         src="cast.webp"          width="1600" height="900" alt="Cast menu — Chromecast, AirPlay, DLNA and Sonos receivers">
-      <img class="slide"         src="mini-compact.webp"  width="1280" height="720" alt="Floating mini player — compact view">
-      <img class="slide"         src="mini-expanded.webp" width="1280" height="720" alt="Floating mini player — album-art view">
+      <img class="slide active" src="library.webp"         width="1600" height="1000" alt="Music library — album grid over frosted glass with an A–Z jump rail">
+      <img class="slide"         src="now-playing.webp"     width="1600" height="1000" alt="Now Playing view — album art, track list and live visualizer">
+      <img class="slide"         src="theme-picker.webp"    width="1600" height="1000" alt="Theme picker — built-in color families with live palette previews">
+      <img class="slide"         src="smart-playlists.webp" width="1600" height="1000" alt="Smart playlist editor — rules with a live match preview">
+      <img class="slide"         src="cast.webp"            width="1600" height="1000" alt="Cast menu — Chromecast, AirPlay, DLNA and Sonos receivers">
+      <img class="slide"         src="mini-expanded.webp"   width="1600" height="1000" alt="Floating mini player — album-art view">
       <button class="nav prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
       <button class="nav next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
     </div>
@@ -240,9 +241,10 @@
     const cap = document.getElementById("cap");
     const captions = [
       "Self-hosted music with desktop features",
-      "Live queue & visualizer",
+      "Now playing — live visualizer",
+      "Themes — Catppuccin to Tokyo Night, or bring your own",
+      "Smart playlists with live preview",
       "Cast to Chromecast, AirPlay 2, DLNA & Sonos",
-      "Mini player — compact view",
       "Mini player — album-art view",
     ];
     let i = 0, timer;
