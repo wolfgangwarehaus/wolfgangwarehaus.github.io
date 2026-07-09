@@ -113,15 +113,16 @@
     border-radius: 14px; padding: 20px 22px; }
   .icard h3 { font-size: 1.05rem; font-weight: 700; color: var(--text);
     margin: 0 0 10px; letter-spacing: -0.01em; }
-  .icard .idl { font-size: 1.0rem; font-weight: 600; }
-  .icard .idl a { color: var(--jelly-bright); text-decoration: none; }
-  .icard .idl a:hover { text-decoration: underline; }
-  .icard .idl .sep { color: var(--dim); font-weight: 400; margin: 0 4px; }
-  .icard .ialt { margin: 9px 0 0; color: var(--dim); font-size: 0.9rem; }
-  .icard .ialt a { color: var(--dim); text-decoration: none;
-    border-bottom: 1px solid rgba(157,138,232,0.35); }
-  .icard .ialt a:hover { color: var(--text); }
-  .icard .muted { opacity: 0.5; }
+  /* Every install link carries the same weight + color — no first-class /
+     second-class split within a card. */
+  .icard .irow { margin: 7px 0 0; font-size: 0.97rem; font-weight: 600;
+    color: var(--dim); }
+  .icard .irow a { color: var(--jelly-bright); text-decoration: none; }
+  .icard .irow a:hover { text-decoration: underline; }
+  .icard .muted { color: var(--dim); font-weight: 400; opacity: 0.6; }
+  .icard .note { color: var(--dim); font-weight: 400; font-size: 0.85rem; }
+  .icard code { display: block; margin: 5px 0 2px; padding: 6px 9px;
+    font-weight: 400; overflow-wrap: anywhere; white-space: pre-wrap; }
   @media (max-width: 560px) { .install-grid { grid-template-columns: 1fr; } }
   code {
     background: rgba(255,255,255,0.07); border-radius: 6px; padding: 2px 7px;
@@ -192,23 +193,30 @@
     <div class="install-grid">
       <div class="icard">
         <h3>Linux</h3>
-        <div class="idl"><a id="dl-deb2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.deb</a></div>
-        <p class="ialt"><a id="dl-appimage" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">AppImage</a> · AUR <span class="muted">soon</span></p>
+        <p class="irow"><a id="dl-appimage" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">AppImage</a></p>
+        <p class="irow"><a id="dl-deb2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.deb</a></p>
+        <p class="irow">AUR <span class="muted">soon</span></p>
       </div>
       <div class="icard">
         <h3>macOS</h3>
-        <div class="idl"><a id="dl-dmg" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">Apple Silicon</a><span class="sep">·</span><a href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">Intel</a></div>
-        <p class="ialt">App Store <span class="muted">soon</span></p>
+        <p class="irow"><a href="https://apps.apple.com/app/id6784370624">Mac App Store</a></p>
+        <p class="irow"><a id="dl-dmg-arm" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">Apple Silicon .dmg</a></p>
+        <p class="irow"><a id="dl-dmg-intel" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">Intel .dmg</a></p>
       </div>
       <div class="icard">
         <h3>Windows</h3>
-        <div class="idl"><a href="https://apps.microsoft.com/detail/9PNLTPXGHN79">Microsoft Store</a></div>
-        <p class="ialt">winget · <a id="dl-win2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.exe</a></p>
+        <p class="irow"><a href="https://apps.microsoft.com/detail/9PNLTPXGHN79">Microsoft Store</a></p>
+        <p class="irow"><a id="dl-win2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.exe</a></p>
+        <p class="irow">winget</p>
+        <code>winget install jellytoast</code>
       </div>
       <div class="icard">
-        <h3>Any OS</h3>
-        <div class="idl"><a href="https://pypi.org/project/jellytoast/">PyPI</a></div>
-        <p class="ialt"><a href="https://github.com/wolfgangwarehaus/jellytoast">From source</a> <span class="muted">— both need libmpv</span></p>
+        <h3>Any OS <span class="note">— PyPI &amp; source need libmpv</span></h3>
+        <p class="irow"><a href="https://pypi.org/project/jellytoast/">PyPI</a></p>
+        <code>pipx install jellytoast</code>
+        <p class="irow"><a href="https://github.com/wolfgangwarehaus/jellytoast">From source</a></p>
+        <code>git clone https://github.com/wolfgangwarehaus/jellytoast
+cd jellytoast &amp;&amp; pip install -e .</code>
       </div>
     </div>
   </div>
@@ -285,7 +293,8 @@
       wire(["dl-win2"], /windows-x64-setup\.exe$/);
       wire(["dl-deb2"], /_amd64\.deb$/);
       wire(["dl-appimage"], /\.AppImage$/);
-      wire(["dl-dmg"], /-macos\.dmg$/);
+      wire(["dl-dmg-arm"], /-macos-arm64\.dmg$/);
+      wire(["dl-dmg-intel"], /-macos-x86_64\.dmg$/);
     })
     .catch(() => {});
 </script>
