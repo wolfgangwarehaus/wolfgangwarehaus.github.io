@@ -195,6 +195,7 @@
         <h3>Linux</h3>
         <p class="irow"><a id="dl-appimage" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">AppImage</a></p>
         <p class="irow"><a id="dl-deb2" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.deb</a></p>
+        <p class="irow"><a id="dl-flatpak" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">Flatpak</a></p>
         <p class="irow">AUR <span class="muted">soon</span></p>
       </div>
       <div class="icard">
@@ -293,6 +294,7 @@ cd jellytoast &amp;&amp; pip install -e .</code>
       wire(["dl-win2"], /windows-x64-setup\.exe$/);
       wire(["dl-deb2"], /_amd64\.deb$/);
       wire(["dl-appimage"], /\.AppImage$/);
+      wire(["dl-flatpak"], /\.flatpak$/);
       wire(["dl-dmg-arm"], /-macos-arm64\.dmg$/);
       wire(["dl-dmg-intel"], /-macos-x86_64\.dmg$/);
     })
