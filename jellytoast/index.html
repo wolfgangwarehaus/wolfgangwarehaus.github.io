@@ -201,8 +201,7 @@
       <div class="icard">
         <h3>macOS</h3>
         <p class="irow"><a href="https://apps.apple.com/app/id6784370624">Mac App Store</a></p>
-        <p class="irow"><a id="dl-dmg-arm" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">Apple Silicon .dmg</a></p>
-        <p class="irow"><a id="dl-dmg-intel" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">Intel .dmg</a></p>
+        <p class="irow"><a id="dl-dmg" href="https://github.com/wolfgangwarehaus/jellytoast/releases/latest">.dmg <span class="muted">universal — Apple Silicon + Intel, macOS 15+</span></a></p>
       </div>
       <div class="icard">
         <h3>Windows</h3>
@@ -291,12 +290,11 @@ cd jellytoast &amp;&amp; pip install -e .</code>
         const a = find(re);
         if (a) ids.forEach(id => document.getElementById(id).href = a.browser_download_url);
       };
-      wire(["dl-win2"], /windows-x64-setup\.exe$/);
+      wire(["dl-win2"], /-windows-setup\.exe$|windows-x64-setup\.exe$/);
       wire(["dl-deb2"], /_amd64\.deb$/);
       wire(["dl-appimage"], /\.AppImage$/);
       wire(["dl-flatpak"], /\.flatpak$/);
-      wire(["dl-dmg-arm"], /-macos-arm64\.dmg$/);
-      wire(["dl-dmg-intel"], /-macos-x86_64\.dmg$/);
+      wire(["dl-dmg"], /-macos-universal\.dmg$|-macos-arm64\.dmg$/);
     })
     .catch(() => {});
 </script>
