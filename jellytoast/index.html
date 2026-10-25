@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>jellytoast — a desktop music player for Jellyfin and Navidrome servers</title>
-<meta name="description" content="A desktop music player for Jellyfin and Navidrome servers. Bit-perfect playback, casting, mini-player, offline downloads. Linux &amp; Windows. Free &amp; open source.">
+<title>jellytoast — a music player for Jellyfin and Navidrome, on desktop and Linux phones</title>
+<meta name="description" content="A music player for Jellyfin and Navidrome servers on Linux, macOS, Windows and Linux phones. Bit-perfect playback, casting, offline downloads. Free &amp; open source.">
 <meta property="og:title" content="jellytoast">
-<meta property="og:description" content="A desktop music player for Jellyfin and Navidrome servers. Linux &amp; Windows.">
+<meta property="og:description" content="A music player for Jellyfin and Navidrome servers. Linux, macOS, Windows and Linux phones.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wolfgangwarehaus.com/jellytoast/">
 <meta property="og:image" content="https://wolfgangwarehaus.com/jellytoast/now-playing.webp">
@@ -123,6 +123,7 @@
   .icard .note { color: var(--dim); font-weight: 400; font-size: 0.85rem; }
   .icard code { display: block; margin: 5px 0 2px; padding: 6px 9px;
     font-weight: 400; overflow-wrap: anywhere; white-space: pre-wrap; }
+  .icard.wide { grid-column: 1 / -1; }
   @media (max-width: 560px) { .install-grid { grid-template-columns: 1fr; } }
   code {
     background: rgba(255,255,255,0.07); border-radius: 6px; padding: 2px 7px;
@@ -153,9 +154,9 @@
   <header>
     <img src="jellytoast.svg" alt="jellytoast logo — toast with a jelly blob">
     <h1>jellytoast</h1>
-    <p class="tagline">A desktop music player for <b>Jellyfin</b> and
-    <b>Navidrome</b> servers —<br>bit-perfect playback, casting, mini-player,
-    and offline downloads.</p>
+    <p class="tagline">A music player for <b>Jellyfin</b> and
+    <b>Navidrome</b> servers, on your desktop and your Linux phone —<br>bit-perfect
+    playback, casting, and offline downloads.</p>
 
     <div class="dl">
       <a class="btn" href="https://github.com/wolfgangwarehaus/jellytoast">GitHub&nbsp;↗</a>
@@ -180,12 +181,16 @@
   <div class="grid">
     <div class="card"><h3>Desktop features</h3>
       <p>Frosted glass with a full theme picker &mdash; light/dark, color presets (Catppuccin, Dracula, Nord&hellip;), base16 import, and system-accent follow &mdash; on KDE, macOS, and Windows. Plus a floating mini player, visualizer, media keys, and notifications.</p></div>
+    <div class="card"><h3>Made for phones too</h3>
+      <p>On Plasma Mobile and Phosh it opens a touch-first interface: swipe gestures, lyrics, a queue you can drag around, downloads and casting. Close it mid-song and the music keeps going.</p></div>
     <div class="card"><h3>Bit-perfect playback</h3>
-      <p>FLAC / ALAC / OPUS / DSD playback via mpv.</p></div>
+      <p>FLAC / ALAC / OPUS / DSD playback via mpv &mdash; or EQ, crossfade and volume normalization when you want them.</p></div>
     <div class="card"><h3>Cast anywhere</h3>
-      <p>Send music to Chromecast, AirPlay&nbsp;2, Sonos, or DLNA. Local relay for offline or Tailscale casting.</p></div>
+      <p>Send music to Chromecast and Google speaker groups, AirPlay&nbsp;2, Sonos, or DLNA. Groups play on through Wi-Fi hiccups, and each speaker gets its own volume back when you stop. Local relay for offline or Tailscale casting.</p></div>
     <div class="card"><h3>Offline mode</h3>
       <p>Cache albums, playlists, or your whole library for offline playback.</p></div>
+    <div class="card"><h3>Quick to set up</h3>
+      <p>Type your server's address and sign in &mdash; jellytoast works out whether it's Jellyfin or Navidrome. Scrobbles to Last.fm and ListenBrainz, and edits your playlists right from the app.</p></div>
   </div>
 
   <h2>Install</h2>
@@ -217,6 +222,11 @@
         <p class="irow"><a href="https://github.com/wolfgangwarehaus/jellytoast">From source</a></p>
         <code>git clone https://github.com/wolfgangwarehaus/jellytoast
 cd jellytoast &amp;&amp; pip install -e .</code>
+      </div>
+      <div class="icard wide">
+        <h3>Linux phones <span class="note">— Plasma Mobile &amp; Phosh</span></h3>
+        <p class="irow"><a href="https://github.com/wolfgangwarehaus/jellytoast/blob/main/docs/linux-phones.md#nura-formerly-postmarketos-and-alpine">Nura / postmarketOS</a> <span class="muted">Alpine package</span></p>
+        <p class="irow"><a href="https://github.com/wolfgangwarehaus/jellytoast/blob/main/docs/linux-phones.md#arch-linux-arm">Arch Linux ARM</a> <span class="muted">yay -S jellytoast</span></p>
       </div>
     </div>
   </div>
